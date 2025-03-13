@@ -23,7 +23,7 @@ A command-line tool for downloading YouTube videos, transcribing them using the 
 
 1. Clone this repository:
 ```
-git clone [repository-url]
+git clone https://github.com/vanzan01/yt-whisper-analyzer.git
 cd yt-whisper-analyzer
 ```
 
@@ -174,10 +174,6 @@ If you encounter issues with transcription:
 - pydub
 - ffmpeg and ffprobe
 - Internet connection
-
-## Detailed Documentation
-
-For more detailed information, see the [Usage Guide](docs/usage_guide.md) and [Implementation Details](docs/implementation/yt-whisper-analyzer-implementation.md).
 
 ## License
 
