@@ -42,4 +42,9 @@ tmp/
 *.tmp
 
 # Development files
-.cursorrules 
+.cursorrules
+
+# Development documentation
+docs/implementation/
+docs/reflections/
+docs/design/ 
