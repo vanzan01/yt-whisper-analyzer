@@ -1,0 +1,9 @@
+yt-dlp>=2025.2.19
+groq>=0.4.1
+pydub>=0.25.1
+requests>=2.28.1
+argparse>=1.4.0
+python-dotenv>=1.0.0
+
+# Optional dependencies
+# yt-dlp  # Alternative YouTube downloader (uncomment if needed) 

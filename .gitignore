@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+.env.*
+!.env.template
+
+# Output files
+output/
+*.wav
+*.mp3
+*.mp4
+*.m4a
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+.cursor/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Large binary files
+ffmpeg.exe
+ffprobe.exe
+ffplay.exe
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Development files
+.cursorrules 
