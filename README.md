@@ -1,16 +1,29 @@
 # 🎬 YouTube Whisper Analyzer
 
-> *Easily detect sponsor mentions and keywords in YouTube videos*
+> *Accurately detect sponsor mentions and keywords in YouTube videos using AI transcription*
 
-This tool helps you find and count how often specific brands, sponsors, or keywords appear in YouTube videos without having to watch the entire video.
+This tool helps you find and count how often specific brands, sponsors, or keywords appear in YouTube videos without having to watch the entire video. Unlike tools that rely on YouTube's built-in captions (which are often inaccurate), this analyzer uses Whisper AI to create high-quality transcripts, ensuring you catch all keyword mentions.
 
 ## ✨ What This Tool Does
 
 - 📥 Downloads audio from any YouTube video
-- 🎙️ Creates a transcript of what's said in the video
-- 🔍 Finds all mentions of sponsors or keywords in the transcript
-- 📊 Shows you exactly when and where sponsor mentions appear
+- 🎙️ Creates highly accurate transcripts using Whisper AI (much better than YouTube's automatic captions)
+- 🔍 Finds all mentions of sponsors or keywords in the transcript with precision
+- 📊 Shows you exactly when and where sponsor mentions appear with timestamps
 - 💾 Saves results to view later
+- 🔄 Works even on videos without captions or with poor automatic captions
+
+### Why Whisper AI Transcription Matters
+
+YouTube's automatic captions often miss words, mispronounce names, and struggle with technical terms or accents. This means you might miss important sponsor mentions when using YouTube's transcripts.
+
+By using state-of-the-art Whisper AI (through the Groq API), this tool delivers:
+- Higher accuracy for brand names and technical terms
+- Better handling of different accents and speech patterns
+- More reliable timestamp information
+- Detection of mentions that YouTube's captions would miss completely
+
+This accuracy is crucial when you need to find every instance of a keyword or analyze how frequently a sponsor is mentioned.
 
 ## 🛠️ Quick Start for Beginners
 
@@ -346,4 +359,15 @@ The MIT License is a permissive license that allows you to:
 - ✅ Use it privately or publicly
 - ✅ Include it in your own projects (open source or commercial)
 
-The only requirement is that you must include the same MIT License and copyright notice in any copies or substantial portions of the software that you distribute. You do not need to mention or credit this project in your documentation, presentations, videos, or other non-code contexts. 
+The only requirement is that you must include the same MIT License and copyright notice in any copies or substantial portions of the software that you distribute. You do not need to mention or credit this project in your documentation, presentations, videos, or other non-code contexts.
+
+### Attribution Request
+
+While the MIT license doesn't legally require it, we kindly ask that you consider giving credit to the YouTube Whisper Analyzer project when you use it in your work. A simple acknowledgment like "Powered by YouTube Whisper Analyzer" or a link to this repository in your documentation, description, or credits would be greatly appreciated. This helps increase awareness of the tool and contributes to building a community of users.
+
+Example credit line:
+```
+This analysis was performed using YouTube Whisper Analyzer (https://github.com/vanzan01/yt-whisper-analyzer)
+```
+
+Thank you for your support!
