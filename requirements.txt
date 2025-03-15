@@ -1,9 +1,12 @@
-yt-dlp>=2025.2.19
-groq>=0.4.1
+yt-dlp>=2023.6.22
+groq>=0.4.2
 pydub>=0.25.1
 requests>=2.28.1
 argparse>=1.4.0
 python-dotenv>=1.0.0
+rich>=13.3.5
+tqdm>=4.65.0
+questionary>=2.0.1
 
 # Optional dependencies
 # yt-dlp  # Alternative YouTube downloader (uncomment if needed) 

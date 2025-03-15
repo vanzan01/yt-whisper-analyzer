@@ -35,9 +35,15 @@ def extract_video_id(url):
     # Handle youtube.com URLs
     parsed_url = urlparse(url)
     if 'youtube.com' in parsed_url.netloc:
+        # Handle standard watch URLs
         query_params = parse_qs(parsed_url.query)
         if 'v' in query_params:
             return query_params['v'][0]
+        
+        # Handle live URLs (format: youtube.com/live/VIDEO_ID)
+        path_parts = parsed_url.path.strip('/').split('/')
+        if len(path_parts) >= 2 and path_parts[0] == 'live' and re.match(r'^[a-zA-Z0-9_-]{11}$', path_parts[1]):
+            return path_parts[1]
     
     # Handle youtu.be URLs
     if 'youtu.be' in parsed_url.netloc:

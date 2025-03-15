@@ -92,6 +92,80 @@ python run_analysis.py --video_id VIDEO_ID --keywords "keyword1,keyword2,keyword
 | `--save_transcript` | Save transcript to file |
 | `--save_results` | Save analysis results to file |
 | `--output_dir` | Directory for output files (default: "output") |
+| `--transcript_file` | Path to a local transcript file to use instead of downloading and transcribing |
+| `--use_existing_transcript` | Look for an existing transcript in the output directory before downloading and transcribing |
+| `--interactive`, `-i` | Run in interactive mode with guided setup and visual UI |
+| `--no-banner` | Hide the CryptoBanter ASCII art banner |
+
+## Interactive Mode
+
+The tool now features an interactive mode that guides you through setting up your analysis. To use it:
+
+```
+python run_analysis.py --interactive
+```
+
+Or use the dedicated interactive script:
+
+```
+python interactive_analyzer.py
+```
+
+### Features of Interactive Mode
+
+- **Guided Setup**: Step-by-step prompts to configure your analysis
+- **User-friendly Selection**: Easy navigation through options with arrow keys
+- **Visual Feedback**: Colorful UI with clear indications of what's happening
+- **Smart Defaults**: Pre-filled default values for common options
+- **Input Validation**: Immediate feedback on invalid inputs
+
+### Interactive Workflow
+
+When using interactive mode, you'll be guided through the following steps:
+
+1. **Video Source**: Choose between YouTube URL or Video ID
+2. **Keywords**: Enter the keywords you want to analyze (comma-separated)
+3. **Transcript Options**: Choose between:
+   - Download and transcribe new
+   - Check for existing transcript first
+   - Specify a local transcript file
+4. **Save Options**: Select which outputs to save:
+   - Save transcript
+   - Save analysis results
+5. **Output Format**: Choose between text or JSON
+6. **Output Directory**: Specify where to save files
+7. **API Key**: Enter your Groq API key if not set in environment
+8. **Model Selection**: Choose the Whisper model to use
+
+This workflow makes it much easier for new users to understand all available options and ensures all necessary information is provided before starting the analysis.
+
+## Visual Progress Indicators
+
+The tool now provides visual feedback during processing:
+
+### Download Progress
+- Shows download progress from YouTube
+- Indicates when download is complete
+
+### Transcription Progress
+- Progress bars for audio chunking
+- Per-chunk transcription status
+- Estimated time remaining
+- Total progress across all chunks
+
+### Analysis Progress
+- Visual indication of analysis steps
+- Spinner during keyword processing
+
+All these visual elements help you understand what's happening during longer operations and provide an estimate of how long processing will take.
+
+## CryptoBanter ASCII Art
+
+The tool includes a colorful ASCII art banner for CryptoBanter. To hide this banner:
+
+```
+python run_analysis.py --no-banner [other options]
+```
 
 ## Configuration via .env File
 
@@ -140,6 +214,18 @@ python run_analysis.py --url https://www.youtube.com/watch?v=VIDEO_ID --keywords
 python run_analysis.py --url https://www.youtube.com/watch?v=VIDEO_ID --keywords "keyword1,keyword2" --save_transcript --output_dir "my_transcripts"
 ```
 
+### Use an existing transcript instead of downloading and transcribing again
+
+```
+python run_analysis.py --video_id VIDEO_ID --keywords "keyword1,keyword2" --transcript_file path/to/transcript.txt
+```
+
+### Check for existing transcripts before processing
+
+```
+python run_analysis.py --url https://www.youtube.com/watch?v=VIDEO_ID --keywords "keyword1,keyword2" --use_existing_transcript
+```
+
 ## Understanding Results
 
 The analysis results include:
@@ -153,6 +239,7 @@ The analysis results include:
    - Partial matches: Words that contain the keyword as a substring
    - Frequency percentage: How often the keyword appears per 100 words
    - Sample contexts: Short excerpts showing the keyword in context
+   - Timestamps: Time markers [HH:MM:SS] indicating when each keyword appears in the video
 
 3. **Related Terms**
    - Words that might be related to your keywords
@@ -166,6 +253,10 @@ The analysis results include:
 The tool uses yt-dlp, a robust YouTube downloader, to reliably download audio from YouTube videos:
 
 1. The tool extracts the video ID from the provided URL
+   - Supports standard YouTube URLs (youtube.com/watch?v=VIDEO_ID)
+   - Supports short URLs (youtu.be/VIDEO_ID)
+   - Supports live URLs (youtube.com/live/VIDEO_ID)
+   - Accepts direct video IDs
 2. It downloads the audio using yt-dlp with optimized settings
 3. The audio is saved as an MP3 file for transcription
 
